@@ -1,6 +1,12 @@
 
 /*
- * Sender Code for EEE Light of things project
+ * Sender Code for EEE3095S  Light of things project
+ * 2023
+ *
+ * Group Members:
+ * Tumi Mokoka (MKKBOI005)
+ * Matome Mbowene (MBWMAT002)
+ * Cassandra Wallace (WLLCAS004)
  *
  */
 
@@ -15,18 +21,12 @@
 
 /* Private typedef -----------------------------------------------------------*/
 
-char binaryValue [12];
 
 
 /* Private define ------------------------------------------------------------*/
-/* USER CODE BEGIN PD */
-
-/* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
-/* USER CODE BEGIN PM */
 
-/* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc;
@@ -36,6 +36,7 @@ TIM_HandleTypeDef htim3;
 uint32_t prev_millis = 0;
 uint32_t curr_millis = 0;
 uint32_t delay_t = 500; // Initialise delay to 500ms
+uint32_t message_delay = 50000; //delay used when sending message
 uint32_t adc_val;
 /* USER CODE END PV */
 
@@ -45,11 +46,10 @@ static void MX_GPIO_Init(void);
 static void MX_ADC_Init(void);
 static void MX_TIM3_Init(void);
 
-// Static variable to track the last time the button was pressed
-static uint32_t lastToggleTime = 0;
-
 /* Private Variables */
 void EXTI0_1_IRQHandler(void);
+void EXTI2_3_IRQHandler(void);
+
 void writeLCD(char *char_in);
 uint32_t pollADC(void);
 uint32_t ADCtoCCR(uint32_t adc_val);
@@ -91,7 +91,7 @@ int main(void)
 	// Display the ADC value on the LCD
 	writeLCD(adcValueStr);// Pass the string to writeLCD
 
-	//converts current POT value to binary
+	/*converts current POT value to binary
 	uint32_t mask = 1<<12;
 	for (int i=0; i<12;i++)
 	{
@@ -100,7 +100,7 @@ int main(void)
 	}
 	binaryValue[12] = '\0';
 	// writeLCD(binaryValue);
-
+	 */
 
 	// Update PWM value; TODO: Get CRR
 	// Calculate CCR value based on ADC reading
@@ -319,40 +319,64 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
   LL_GPIO_Init(LED7_GPIO_Port, &GPIO_InitStruct);
 
+
+  GPIO_InitStruct.Pin = GPIO_PIN_1;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
 /* USER CODE BEGIN MX_GPIO_Init_2 */
   HAL_NVIC_SetPriority(EXTI0_1_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(EXTI0_1_IRQn);
+  HAL_NVIC_EnableIRQ(EXTI2_3_IRQn);
 /* USER CODE END MX_GPIO_Init_2 */
 }
+
+void EXTI2_3_IRQHandler(void)
+{
+	//toggle LED1
+	HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_6);
+	writeLCD("SW1");
+
+}
+
 
 /* Code when SW0 is pressed --> Sample ADC value and send message*/
 void EXTI0_1_IRQHandler(void)
 {
-	// TODO: Add code to switch LED7 delay frequency
 	 // Send sampled POT value out via LED
-	  uint32_t currentTime = HAL_GetTick();
-	  if (currentTime - lastToggleTime >= 500) {
-	    // if at least 500 ms has passed since the last toggle
-	   // HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);
+
+	  curr_millis = HAL_GetTick();
+	  if (curr_millis - prev_millis >= 500) {
+	  // if at least 500 ms has passed since the last toggle
 
 		  //binary value flashed to LED using little endian format
-		  for(int i=11; i>0; i--)
+		  for(int i=11; i>= 0 ; --i)
 		  {
-			  int bit = (adc_val >> i) & 1; //ith bit
-			  if(bit ==0)
+			  uint32_t mask = (uint32_t)(1) << i;
+			  uint32_t masked_n = adc_val & mask;
+			  uint32_t bit = masked_n >> i;
+
+			  char bitstr[1];
+			  sprintf(bitstr, "%lu", bit);
+			  writeLCD(bitstr);
+
+			  if(bit == 0)
 			  {
-				  HAL_GPIO_WritePin(GPIOB, LED7_Pin, GPIO_PIN_RESET);
-				  HAL_Delay(delay_t);
+				  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
+
 			  }
 			  else
 			  {
-				  HAL_GPIO_WritePin(GPIOB, LED7_Pin, GPIO_PIN_SET);
-				  HAL_Delay(delay_t);
+
+				  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
 			  }
+
+			  delay(message_delay);
 		  }
 
 
-	    lastToggleTime = currentTime;
+	    prev_millis = curr_millis;
 	  }
 
   
@@ -367,9 +391,9 @@ void writeLCD(char *char_in){
 	lcd_putstring(char_in);
 }
 
-// Get ADC value
-uint32_t pollADC(void){
-  // TODO: Complete function body to get ADC val
+
+uint32_t pollADC(void){ // Get ADC value
+
   // Start the ADC conversion
 	  HAL_ADC_Start(&hadc);
 
