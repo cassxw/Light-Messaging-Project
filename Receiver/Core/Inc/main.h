@@ -74,6 +74,9 @@ void Error_Handler(void);
 #define LED7_Pin LL_GPIO_PIN_7
 #define LED7_GPIO_Port GPIOB
 
+#define LED3_Pin LL_GPIO_PIN_3
+#define LED3_GPIO_Port GPIOB
+
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

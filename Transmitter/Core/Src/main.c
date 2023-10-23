@@ -307,7 +307,7 @@ void EXTI0_1_IRQHandler(void)
 	curr_millis = HAL_GetTick();
 
 	// Debouncing to prevent false triggers
-	if ((curr_millis - prev_millis) >= 1000) {
+	if ((curr_millis - prev_millis) >= 240000) {
 
 		//*****************************************************
 		// When user presses PA0, this function initiates the
