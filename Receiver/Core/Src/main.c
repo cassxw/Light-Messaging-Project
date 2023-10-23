@@ -305,16 +305,22 @@ void receiveMessage(void) {
 
 	// Receive the parity bit
 	uint8_t received_parity = LL_GPIO_IsInputPinSet(GPIOB, LL_GPIO_PIN_7);
-	delay(100000);
+	delay(200000);
 
 	// Receive the stop bit (EOT)
 
+
 	// true if PB7 is 1 = parity bit should be 0
 	// false if PB7 is 0 = parity bit should be 1
+
+	/*
+
 	if (received_parity == 1) {
-		if (LL_GPIO_IsInputPinSet(GPIOB, LL_GPIO_PIN_7)) {
+		if (LL_GPIO_IsInputPinSet(GPIOB, LL_GPIO_PIN_7) == 1) {
 			lcd_command(CLEAR);
-			lcd_putstring("Incomplete Message!");
+			lcd_putstring("Incomplete");
+			lcd_command(LINE_TWO);
+			lcd_putstring("Message!");
 			displayError();
 			delay(200000);
 			return;
@@ -322,15 +328,30 @@ void receiveMessage(void) {
 	} else if (received_parity == 0) { //received_parity == 0
 		if (LL_GPIO_IsInputPinSet(GPIOB, LL_GPIO_PIN_7) == 0) {
 			lcd_command(CLEAR);
-			lcd_putstring("Incomplete Message!");
+			lcd_putstring("Incomplete");
+			lcd_command(LINE_TWO);
+			lcd_putstring("Message!");
 			displayError();
 			delay(200000);
 			return;
 		}
 	}
 
-	delay(20000);
+	*/
 
+	/*
+	if(!LL_GPIO_IsInputPinSet(GPIOB, LL_GPIO_PIN_7))
+	{
+		lcd_command(CLEAR);
+		lcd_putstring("Incomplete");
+		lcd_command(LINE_TWO);
+		lcd_putstring("Message!");
+		displayError();
+		delay(200000);
+		return;
+	}*/
+
+	delay(20000);
 	for (int i = 0; i < 9; i++)
 	{
 		delay(20000);
@@ -357,7 +378,7 @@ void decodeMessage(uint8_t message_type, uint16_t received_data, uint8_t receive
             // Checkpoint Message
             if (received_data == received_counter) {
                 // Counter matches the expected value
-            	lcd_putstring("Checkpoint Success!");
+            	lcd_putstring("Checkpoint Good!");
 
             	lcd_command(LINE_TWO);
             	char lcd_message[20];
