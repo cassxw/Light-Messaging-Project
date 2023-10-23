@@ -83,7 +83,7 @@ int main(void)
   // PWM setup
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3); // Start PWM on TIM3 Channel 3
 
-  lcd_putstring("Listening for message...");
+  lcd_putstring("Listening");
 
   /* Infinite loop */
   while (1)
@@ -93,9 +93,6 @@ int main(void)
 	  if (LL_GPIO_IsInputPinSet(GPIOB, LL_GPIO_PIN_7)) {
 		  receiveMessage();
 	  }
-
-	  lcd_command(CLEAR);
-	  lcd_putstring("Listening for message...");
   }
 }
 
