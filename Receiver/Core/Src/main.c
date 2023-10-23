@@ -83,6 +83,8 @@ int main(void)
   // PWM setup
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3); // Start PWM on TIM3 Channel 3
 
+  lcd_putstring("Listening for message...");
+
   /* Infinite loop */
   while (1)
   {
@@ -91,6 +93,9 @@ int main(void)
 	  if (LL_GPIO_IsInputPinSet(GPIOB, LL_GPIO_PIN_7)) {
 		  receiveMessage();
 	  }
+
+	  lcd_command(CLEAR);
+	  lcd_putstring("Listening for message...");
   }
 }
 
@@ -300,13 +305,13 @@ static void MX_GPIO_Init(void)
 void receiveMessage(void) {
 
 	// If this function is invoked, it means that the SOT of a message was found
-	delay(100000);
+	delay(200000);
 
 	// Message Identifier
 	// If pin is low next -> Data Message
 	// If pin is high next -> Checkpoint Message
 	uint8_t message_type = LL_GPIO_IsInputPinSet(GPIOB, LL_GPIO_PIN_7);
-	delay(100000);
+	delay(200000);
 
 	uint16_t received_data = 0;
 
@@ -318,7 +323,7 @@ void receiveMessage(void) {
 		}
 
 		// Wait for 500ms for each bit
-		delay(50000);
+		delay(100000);
 	}
 
 	// At this point, received_data should hold the Data/Checkpoint Payload
@@ -328,12 +333,6 @@ void receiveMessage(void) {
 	delay(100000);
 
 	// Receive the stop bit (EOT)
-
-	// Perform Parity-Bit Validity Check
-	if (received_parity != calculateParity(received_data)) {
-		displayError();
-		return;
-	}
 
 	// Message Successfully Received
 	decodeMessage(message_type, received_data, received_parity);
@@ -351,12 +350,31 @@ void decodeMessage(uint8_t message_type, uint16_t received_data, uint8_t receive
         // Check if it's a Checkpoint Message or a Data Message
         if (message_type == 1) {
 
+        	lcd_command(CLEAR);
+
             // Checkpoint Message
             if (received_data == received_counter) {
                 // Counter matches the expected value
+            	lcd_putstring("Checkpoint Successful!");
+
+            	lcd_command(LINE_TWO);
+            	char lcd_message[20];
+            	sprintf(lcd_message, "All OK %d->%d", received_counter, received_data);
+            	lcd_putstring(lcd_message);
+
                 displaySuccess();
+
             } else {
                 // Counter does not match the expected value
+            	lcd_putstring("Counter Mismatch!");
+
+            	lcd_command(LINE_TWO);
+				char lcd_message[20];
+				sprintf(lcd_message, "Updating %d->%d", received_counter, received_data);
+				lcd_putstring(lcd_message);
+
+				received_counter = received_data;
+
                 displayError();
             }
 
