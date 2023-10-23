@@ -307,7 +307,7 @@ void EXTI0_1_IRQHandler(void)
 	curr_millis = HAL_GetTick();
 
 	// Debouncing to prevent false triggers
-	if ((curr_millis - prev_millis) >= 240000) {
+	if ((curr_millis - prev_millis) >= 500) {
 
 		//*****************************************************
 		// When user presses PA0, this function initiates the
@@ -429,8 +429,10 @@ void transmitMessage(uint16_t data, uint8_t val) {
     delay(200000);
 
     // Stop (EOT) - Toggling in 100ms intervals for 1 second
+    uint8_t flag = 0;
     for (int i = 0; i < 10; i++) {
-    	HAL_GPIO_TogglePin(LED7_GPIO_Port, LED7_Pin);
+    	HAL_GPIO_WritePin(LED7_GPIO_Port, LED7_Pin, (flag == 1) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+    	flag = !flag;
     	delay(20000);
     }
 
