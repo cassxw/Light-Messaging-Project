@@ -71,8 +71,13 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define Button0_Pin LL_GPIO_PIN_0
 #define Button0_GPIO_Port GPIOA
-#define LED7_Pin LL_GPIO_PIN_7
+#define Button1_Pin LL_GPIO_PIN_1
+#define Button1_GPIO_Port GPIOA
+#define message_output_Pin LL_GPIO_PIN_6
+#define message_output_GPIO_Port GPIOB
+#define message_output LL_GPIO_PIN_7
 #define LED7_GPIO_Port GPIOB
+#define LED7_Pin LL_GPIO_PIN_7
 
 /* USER CODE BEGIN Private defines */
 

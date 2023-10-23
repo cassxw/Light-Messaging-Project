@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
   30:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****    (#) Use HAL_DMA_Abort() function to abort the current transfer
   31:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c **** 
   32:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****      -@-   In Memory-to-Memory transfer mode, Circular mode is not allowed.
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 2
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 2
 
 
   33:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****      *** Polling mode IO operation ***
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
   87:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****   */
   88:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c **** 
   89:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c **** #ifdef HAL_DMA_MODULE_ENABLED
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 3
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 3
 
 
   90:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  144:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****     return HAL_ERROR;
  145:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****   }
  146:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c **** 
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 4
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 4
 
 
  147:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****   /* Check the parameters */
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  201:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****   /* Check the DMA handle allocation */
  202:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****   if (NULL == hdma)
  203:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****   {
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 5
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 5
 
 
  204:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****     return HAL_ERROR;
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  258:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****                       #####  IO operation functions  #####
  259:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****  ===============================================================================
  260:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****     [..]  This section provides functions allowing to:
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 6
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 6
 
 
  261:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****       (+) Configure the source, destination address and data length and Start DMA transfer
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  315:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c **** 
  316:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****   return status;
  317:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c **** }
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 7
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 7
 
 
  318:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c **** 
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  372:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****     status = HAL_BUSY;
  373:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****   }
  374:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c **** 
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 8
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 8
 
 
  375:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****   return status;
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  429:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****     hdma->ErrorCode = HAL_DMA_ERROR_NO_XFER;
  430:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c **** 
  431:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****     status = HAL_ERROR;
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 9
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 9
 
 
  432:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****   }
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  486:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****   }
  487:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c **** 
  488:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****   /* Get the level transfer complete flag */
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 10
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 10
 
 
  489:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****   if (HAL_DMA_FULL_TRANSFER == CompleteLevel)
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  543:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****   {
  544:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****     /* Clear the transfer complete flag */
  545:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****     hdma->DmaBaseAddress->IFCR = DMA_FLAG_TC1 << hdma->ChannelIndex;
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 11
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 11
 
 
  546:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c **** 
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  600:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****     if ((hdma->Instance->CCR & DMA_CCR_CIRC) == 0U)
  601:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****     {
  602:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****       /* Disable the transfer complete  & transfer error interrupts */
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 12
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 12
 
 
  603:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****       /* if the DMA mode is not CIRCULAR */
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  657:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****   * @param  pCallback            pointer to private callback function which has pointer to
  658:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****   *                               a DMA_HandleTypeDef structure as parameter.
  659:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****   * @retval HAL status
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 13
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 13
 
 
  660:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****   */
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  714:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****   HAL_StatusTypeDef status = HAL_OK;
  715:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c **** 
  716:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****   /* Process locked */
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 14
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 14
 
 
  717:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****   __HAL_LOCK(hdma);
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  771:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****                     ##### State and Errors functions #####
  772:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****  ===============================================================================
  773:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****     [..]
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 15
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 15
 
 
  774:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****     This subsection provides functions allowing to
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
   28              		.cfi_startproc
   29              		@ args = 0, pretend = 0, frame = 0
   30              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 16
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 16
 
 
   31              		.loc 1 826 1 is_stmt 0 view .LVU1
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
   65 0018 9960     		str	r1, [r3, #8]
   66              	.LVL2:
  847:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c **** 
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 17
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 17
 
 
  848:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****     /* Configure DMA Channel destination address */
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  104              		.cfi_startproc
  105              		@ args = 0, pretend = 0, frame = 0
  106              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 18
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 18
 
 
  107              		.loc 1 860 1 is_stmt 0 view .LVU27
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  140              		.align	2
  141              	.L6:
  142 001c F8FFFDBF 		.word	-1073872904
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 19
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 19
 
 
  143 0020 00000240 		.word	1073872896
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  184              		.loc 1 158 15 is_stmt 0 view .LVU52
  185 0006 2125     		movs	r5, #33
  186 0008 0223     		movs	r3, #2
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 20
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 20
 
 
  187 000a 4355     		strb	r3, [r0, r5]
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  223              		.loc 1 172 54 view .LVU70
  224 002a E069     		ldr	r0, [r4, #28]
  172:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c **** 
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 21
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 21
 
 
  225              		.loc 1 172 42 view .LVU71
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  263              		.loc 1 144 12 view .LVU87
  264 004a FCE7     		b	.L9
  265              	.L12:
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 22
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 22
 
 
  266              		.align	2
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  311 0012 0025     		movs	r5, #0
  312 0014 1D60     		str	r5, [r3]
  217:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c **** 
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 23
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 23
 
 
  313              		.loc 1 217 3 is_stmt 1 view .LVU99
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  347              		.loc 1 234 27 is_stmt 0 view .LVU119
  348 0032 2563     		str	r5, [r4, #48]
  235:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c **** 
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 24
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 24
 
 
  349              		.loc 1 235 3 is_stmt 1 view .LVU120
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  391              	.LVL24:
  392              	.LFB42:
  282:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****   HAL_StatusTypeDef status = HAL_OK;
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 25
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 25
 
 
  393              		.loc 1 282 1 is_stmt 1 view -0
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  433              		.loc 1 310 5 is_stmt 0 view .LVU149
  434 001c 0022     		movs	r2, #0
  435              	.LVL28:
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 26
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 26
 
 
  310:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c **** 
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  474              		.loc 1 305 9 is_stmt 0 view .LVU165
  475 003e 2268     		ldr	r2, [r4]
  305:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****   }
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 27
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 27
 
 
  476              		.loc 1 305 25 view .LVU166
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  523 0008 0128     		cmp	r0, #1
  524 000a 32D0     		beq	.L26
  336:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c **** 
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 28
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 28
 
 
  525              		.loc 1 336 3 is_stmt 1 discriminator 2 view .LVU176
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  564 0028 2554     		strb	r5, [r4, r0]
  343:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c **** 
  565              		.loc 1 343 5 is_stmt 1 view .LVU192
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 29
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 29
 
 
  343:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c **** 
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  605 0058 0020     		movs	r0, #0
  606 005a E2E7     		b	.L22
  607              	.L24:
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 30
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 30
 
 
  359:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****       hdma->Instance->CCR &= ~DMA_IT_HT;
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  386:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****   {
  654              		.loc 1 386 11 is_stmt 0 view .LVU218
  655 0002 2123     		movs	r3, #33
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 31
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 31
 
 
  656 0004 C35C     		ldrb	r3, [r0, r3]
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  695 002a 0A60     		str	r2, [r1]
  405:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****   }
  696              		.loc 1 405 5 is_stmt 1 view .LVU234
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 32
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 32
 
 
  405:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****   }
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  739              		.loc 1 423 1 is_stmt 0 view .LVU248
  740 0000 10B5     		push	{r4, lr}
  741              	.LCFI7:
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 33
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 33
 
 
  742              		.cfi_def_cfa_offset 8
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  440:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c **** 
  781              		.loc 1 440 25 view .LVU264
  782 001e 0A68     		ldr	r2, [r1]
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 34
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 34
 
 
  783 0020 0123     		movs	r3, #1
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  821 0046 0020     		movs	r0, #0
  822              	.LVL57:
  424:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c **** 
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 35
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 35
 
 
  823              		.loc 1 424 21 view .LVU281
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  870 0014 8363     		str	r3, [r0, #56]
  477:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****     return HAL_ERROR;
  871              		.loc 1 477 5 is_stmt 1 view .LVU291
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 36
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 36
 
 
  477:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****     return HAL_ERROR;
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  910 0030 0225     		movs	r5, #2
  911 0032 9D40     		lsls	r5, r5, r3
  912              	.LVL66:
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 37
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 37
 
 
  913              	.L40:
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  526:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****       {
  950              		.loc 1 526 32 discriminator 1 view .LVU325
  951 0056 FFF7FEFF 		bl	HAL_GetTick
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 38
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 38
 
 
  952              	.LVL69:
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  990 007c CFE7     		b	.L37
  991              	.LVL72:
  992              	.L39:
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 39
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 39
 
 
  497:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****   }
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  542:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****   {
  1030              		.loc 1 542 6 is_stmt 0 view .LVU359
  1031 009e 002C     		cmp	r4, #0
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 40
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 40
 
 
  1032 00a0 0BD1     		bne	.L46
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  1072              		.global	HAL_DMA_IRQHandler
  1073              		.syntax unified
  1074              		.code	16
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 41
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 41
 
 
  1075              		.thumb_func
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  1116              		.loc 1 578 5 is_stmt 1 view .LVU388
  578:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****     {
  1117              		.loc 1 578 24 is_stmt 0 view .LVU389
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 42
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 42
 
 
  1118 0018 2368     		ldr	r3, [r4]
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  598:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****   {
  1157              		.loc 1 598 47 is_stmt 0 view .LVU405
  1158 003a 0223     		movs	r3, #2
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 43
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 43
 
 
  1159 003c 8B40     		lsls	r3, r3, r1
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  614:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c **** 
  1197              		.loc 1 614 5 view .LVU422
  1198 0064 2023     		movs	r3, #32
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 44
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 44
 
 
  1199 0066 0022     		movs	r2, #0
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  1237              		.loc 1 632 9 view .LVU438
  1238 008a C26B     		ldr	r2, [r0, #60]
  632:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c **** 
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 45
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 45
 
 
  1239              		.loc 1 632 47 view .LVU439
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  662:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****   HAL_StatusTypeDef status = HAL_OK;
  1282              		.loc 1 662 1 is_stmt 1 view -0
  1283              		.cfi_startproc
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 46
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 46
 
 
  1284              		@ args = 0, pretend = 0, frame = 0
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  1324              		.loc 1 699 3 is_stmt 0 view .LVU467
  1325 0020 0021     		movs	r1, #0
  1326              	.LVL92:
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 47
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 47
 
 
  699:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c **** 
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  1365 0042 ECE7     		b	.L65
  1366              	.L68:
  673:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c ****         break;
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 48
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 48
 
 
  1367              		.loc 1 673 9 is_stmt 1 view .LVU484
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  717:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c **** 
  1410              		.loc 1 717 3 view .LVU498
  717:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c **** 
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 49
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 49
 
 
  1411              		.loc 1 717 3 view .LVU499
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  1451              		.loc 1 721 5 is_stmt 1 view .LVU513
  1452 0024 0429     		cmp	r1, #4
  1453 0026 F9D8     		bhi	.L76
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 50
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 50
 
 
  1454 0028 8A00     		lsls	r2, r1, #2
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  1494 0044 0020     		movs	r0, #0
  733:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c **** 
  1495              		.loc 1 733 9 view .LVU528
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 51
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 51
 
 
  1496 0046 E9E7     		b	.L76
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  1532 0060 DFE7     		b	.L75
  1533              	.L87:
  1534 0062 C046     		.align	2
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 52
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 52
 
 
  1535              	.L86:
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  1585 0000 806B     		ldr	r0, [r0, #56]
  1586              	.LVL107:
  802:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c **** 
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 53
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 53
 
 
  1587              		.loc 1 802 1 view .LVU555
@@ -3135,43 +3135,43 @@ ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 1
  1599              		.file 6 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h"
  1600              		.file 7 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h"
  1601              		.file 8 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h"
-ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s 			page 54
+ARM GAS  C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s 			page 54
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f0xx_hal_dma.c
-C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s:18     .text.DMA_SetConfig:0000000000000000 $t
-C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s:23     .text.DMA_SetConfig:0000000000000000 DMA_SetConfig
-C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s:95     .text.DMA_CalcBaseAndBitshift:0000000000000000 $t
-C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s:100    .text.DMA_CalcBaseAndBitshift:0000000000000000 DMA_CalcBaseAndBitshift
-C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s:142    .text.DMA_CalcBaseAndBitshift:000000000000001c $d
-C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s:148    .text.HAL_DMA_Init:0000000000000000 $t
-C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s:154    .text.HAL_DMA_Init:0000000000000000 HAL_DMA_Init
-C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s:268    .text.HAL_DMA_Init:000000000000004c $d
-C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s:273    .text.HAL_DMA_DeInit:0000000000000000 $t
-C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s:279    .text.HAL_DMA_DeInit:0000000000000000 HAL_DMA_DeInit
-C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s:384    .text.HAL_DMA_Start:0000000000000000 $t
-C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s:390    .text.HAL_DMA_Start:0000000000000000 HAL_DMA_Start
-C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s:492    .text.HAL_DMA_Start_IT:0000000000000000 $t
-C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s:498    .text.HAL_DMA_Start_IT:0000000000000000 HAL_DMA_Start_IT
-C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s:634    .text.HAL_DMA_Abort:0000000000000000 $t
-C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s:640    .text.HAL_DMA_Abort:0000000000000000 HAL_DMA_Abort
-C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s:726    .text.HAL_DMA_Abort_IT:0000000000000000 $t
-C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s:732    .text.HAL_DMA_Abort_IT:0000000000000000 HAL_DMA_Abort_IT
-C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s:829    .text.HAL_DMA_PollForTransfer:0000000000000000 $t
-C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s:835    .text.HAL_DMA_PollForTransfer:0000000000000000 HAL_DMA_PollForTransfer
-C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s:1071   .text.HAL_DMA_IRQHandler:0000000000000000 $t
-C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s:1077   .text.HAL_DMA_IRQHandler:0000000000000000 HAL_DMA_IRQHandler
-C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s:1273   .text.HAL_DMA_RegisterCallback:0000000000000000 $t
-C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s:1279   .text.HAL_DMA_RegisterCallback:0000000000000000 HAL_DMA_RegisterCallback
-C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s:1392   .text.HAL_DMA_UnRegisterCallback:0000000000000000 $t
-C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s:1398   .text.HAL_DMA_UnRegisterCallback:0000000000000000 HAL_DMA_UnRegisterCallback
-C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s:1459   .rodata.HAL_DMA_UnRegisterCallback:0000000000000000 $d
-C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s:1536   .text.HAL_DMA_UnRegisterCallback:0000000000000064 $d
-C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s:1541   .text.HAL_DMA_GetState:0000000000000000 $t
-C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s:1547   .text.HAL_DMA_GetState:0000000000000000 HAL_DMA_GetState
-C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s:1569   .text.HAL_DMA_GetError:0000000000000000 $t
-C:\Users\boitu\AppData\Local\Temp\ccyuzfAt.s:1575   .text.HAL_DMA_GetError:0000000000000000 HAL_DMA_GetError
+C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s:18     .text.DMA_SetConfig:0000000000000000 $t
+C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s:23     .text.DMA_SetConfig:0000000000000000 DMA_SetConfig
+C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s:95     .text.DMA_CalcBaseAndBitshift:0000000000000000 $t
+C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s:100    .text.DMA_CalcBaseAndBitshift:0000000000000000 DMA_CalcBaseAndBitshift
+C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s:142    .text.DMA_CalcBaseAndBitshift:000000000000001c $d
+C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s:148    .text.HAL_DMA_Init:0000000000000000 $t
+C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s:154    .text.HAL_DMA_Init:0000000000000000 HAL_DMA_Init
+C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s:268    .text.HAL_DMA_Init:000000000000004c $d
+C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s:273    .text.HAL_DMA_DeInit:0000000000000000 $t
+C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s:279    .text.HAL_DMA_DeInit:0000000000000000 HAL_DMA_DeInit
+C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s:384    .text.HAL_DMA_Start:0000000000000000 $t
+C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s:390    .text.HAL_DMA_Start:0000000000000000 HAL_DMA_Start
+C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s:492    .text.HAL_DMA_Start_IT:0000000000000000 $t
+C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s:498    .text.HAL_DMA_Start_IT:0000000000000000 HAL_DMA_Start_IT
+C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s:634    .text.HAL_DMA_Abort:0000000000000000 $t
+C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s:640    .text.HAL_DMA_Abort:0000000000000000 HAL_DMA_Abort
+C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s:726    .text.HAL_DMA_Abort_IT:0000000000000000 $t
+C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s:732    .text.HAL_DMA_Abort_IT:0000000000000000 HAL_DMA_Abort_IT
+C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s:829    .text.HAL_DMA_PollForTransfer:0000000000000000 $t
+C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s:835    .text.HAL_DMA_PollForTransfer:0000000000000000 HAL_DMA_PollForTransfer
+C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s:1071   .text.HAL_DMA_IRQHandler:0000000000000000 $t
+C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s:1077   .text.HAL_DMA_IRQHandler:0000000000000000 HAL_DMA_IRQHandler
+C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s:1273   .text.HAL_DMA_RegisterCallback:0000000000000000 $t
+C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s:1279   .text.HAL_DMA_RegisterCallback:0000000000000000 HAL_DMA_RegisterCallback
+C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s:1392   .text.HAL_DMA_UnRegisterCallback:0000000000000000 $t
+C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s:1398   .text.HAL_DMA_UnRegisterCallback:0000000000000000 HAL_DMA_UnRegisterCallback
+C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s:1459   .rodata.HAL_DMA_UnRegisterCallback:0000000000000000 $d
+C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s:1536   .text.HAL_DMA_UnRegisterCallback:0000000000000064 $d
+C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s:1541   .text.HAL_DMA_GetState:0000000000000000 $t
+C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s:1547   .text.HAL_DMA_GetState:0000000000000000 HAL_DMA_GetState
+C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s:1569   .text.HAL_DMA_GetError:0000000000000000 $t
+C:\Users\boitu\AppData\Local\Temp\ccHQOlQo.s:1575   .text.HAL_DMA_GetError:0000000000000000 HAL_DMA_GetError
 
 UNDEFINED SYMBOLS
 __aeabi_uidiv

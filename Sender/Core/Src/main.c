@@ -1,32 +1,48 @@
-
-/*
- * Sender Code for EEE3095S  Light of things project
- * 2023
+/* USER CODE BEGIN Header */
+/**
+  ******************************************************************************
+  * @file           : main.c
+  * @brief          : Main program body
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2023 STMicroelectronics.
+  * All rights reserved.
+  *
+  *Sender Code for EEE3095S  Light of things project - 2023
  *
  * Group Members:
  * Tumi Mokoka (MKKBOI005)
  * Matome Mbowene (MBWMAT002)
  * Cassandra Wallace (WLLCAS004)
- *
- */
-
+  *
+  ******************************************************************************
+  */
+/* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
 /* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
 #include <stdio.h>
 #include "stm32f0xx.h"
 #include <lcd_stm32f0.c>
-
+/* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
 
-
+/* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+
+/* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
 
+/* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc;
@@ -38,6 +54,7 @@ uint32_t curr_millis = 0;
 uint32_t delay_t = 500; // Initialise delay to 500ms
 uint32_t message_delay = 50000; //delay used when sending message
 uint32_t adc_val;
+uint32_t checkpoint_count;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -45,74 +62,73 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_ADC_Init(void);
 static void MX_TIM3_Init(void);
+/* USER CODE BEGIN PFP */
 
-/* Private Variables */
+/* USER CODE END PFP */
+
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
 void EXTI0_1_IRQHandler(void);
 void EXTI2_3_IRQHandler(void);
-
 void writeLCD(char *char_in);
 uint32_t pollADC(void);
 uint32_t ADCtoCCR(uint32_t adc_val);
+/* USER CODE END 0 */
 
-
+/**
+  * @brief  The application entry point.
+  * @retval int
+  */
 int main(void)
 {
+  /* USER CODE BEGIN 1 */
+
+  /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
 
+  /* USER CODE BEGIN Init */
+
+  /* USER CODE END Init */
+
   /* Configure the system clock */
   SystemClock_Config();
+
+  /* USER CODE BEGIN SysInit */
+
+  /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_ADC_Init();
   MX_TIM3_Init();
+  /* USER CODE BEGIN 2 */
 
-  /* LCD configuration function */
   init_LCD();
 
-  // PWM setup
-  //uint32_t crr_val = 0;
-  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3); // Start PWM on TIM3 Channel 3
+  /* USER CODE END 2 */
 
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
   while (1)
   {
-	// Toggle LED0
-	//HAL_GPIO_TogglePin(GPIOB, LED7_Pin);
+    /* USER CODE END WHILE */
 
-	// ADC to LCD --> Reads the ADC value
-	adc_val = pollADC();
-	char adcValueStr[32]; // Assuming the maximum string length needed
-	sprintf(adcValueStr, "%lu", adc_val); // Convert uint32_t to string
+    /* USER CODE BEGIN 3 */
+	  // ADC to LCD --> Reads the ADC value
+	  adc_val = pollADC();
+	  char adcValueStr[32]; // Assuming the maximum string length needed
+	  sprintf(adcValueStr, "%lu", adc_val); // Convert uint32_t to string
 
-	// Display the ADC value on the LCD
-	writeLCD(adcValueStr);// Pass the string to writeLCD
+	  // Display the ADC value on the LCD
+	  writeLCD(adcValueStr);// Pass the string to writeLCD
 
-	/*converts current POT value to binary
-	uint32_t mask = 1<<12;
-	for (int i=0; i<12;i++)
-	{
-		binaryValue[i] = (adc_val & mask) ? '1' : '0';
-		mask>>=1;
-	}
-	binaryValue[12] = '\0';
-	// writeLCD(binaryValue);
-	 */
-
-	// Update PWM value; TODO: Get CRR
-	// Calculate CCR value based on ADC reading
-	uint32_t crr_val = ADCtoCCR(adc_val);
-	__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_3, crr_val);
-
-	// Wait for delay ms
-	HAL_Delay (delay_t);
-
-    /* END WHILE */
+	  HAL_Delay(delay_t);
   }
-
+  /* USER CODE END 3 */
 }
 
 /**
@@ -293,6 +309,9 @@ static void MX_GPIO_Init(void)
   LL_AHB1_GRP1_EnableClock(LL_AHB1_GRP1_PERIPH_GPIOB);
 
   /**/
+  LL_GPIO_ResetOutputPin(message_output_GPIO_Port, message_output_Pin);
+
+  /**/
   LL_GPIO_ResetOutputPin(LED7_GPIO_Port, LED7_Pin);
 
   /**/
@@ -312,6 +331,20 @@ static void MX_GPIO_Init(void)
   LL_EXTI_Init(&EXTI_InitStruct);
 
   /**/
+  GPIO_InitStruct.Pin = Button1_Pin;
+  GPIO_InitStruct.Mode = LL_GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
+  LL_GPIO_Init(Button1_GPIO_Port, &GPIO_InitStruct);
+
+  /**/
+  GPIO_InitStruct.Pin = message_output_Pin;
+  GPIO_InitStruct.Mode = LL_GPIO_MODE_OUTPUT;
+  GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
+  GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
+  LL_GPIO_Init(message_output_GPIO_Port, &GPIO_InitStruct);
+
+  /**/
   GPIO_InitStruct.Pin = LED7_Pin;
   GPIO_InitStruct.Mode = LL_GPIO_MODE_OUTPUT;
   GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_LOW;
@@ -319,70 +352,122 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
   LL_GPIO_Init(LED7_GPIO_Port, &GPIO_InitStruct);
 
-
-  GPIO_InitStruct.Pin = GPIO_PIN_1;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
 /* USER CODE BEGIN MX_GPIO_Init_2 */
   HAL_NVIC_SetPriority(EXTI0_1_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(EXTI0_1_IRQn);
+  HAL_NVIC_SetPriority(EXTI2_3_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(EXTI2_3_IRQn);
 /* USER CODE END MX_GPIO_Init_2 */
 }
 
+/* USER CODE BEGIN 4 */
+
+//Pushbutton 2 code for checkpoint message
 void EXTI2_3_IRQHandler(void)
 {
-	//toggle LED1
-	HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_6);
-	writeLCD("SW1");
 
+	HAL_GPIO_TogglePin(GPIOB, LED7_Pin);
+
+	curr_millis = HAL_GetTick();
+	if(curr_millis - prev_millis >= 500)
+	{
+		writeLCD("CHECKPOINT ...");
+	}
 }
 
-
-/* Code when SW0 is pressed --> Sample ADC value and send message*/
+/*Pushbutton 1 code --> sample ADC value and send out*/
 void EXTI0_1_IRQHandler(void)
 {
-	 // Send sampled POT value out via LED
+	//debouncing condition --> greater than 50 ms
+	curr_millis = HAL_GetTick();
+	if(curr_millis - prev_millis >= 500)
+	{
 
-	  curr_millis = HAL_GetTick();
-	  if (curr_millis - prev_millis >= 500) {
-	  // if at least 500 ms has passed since the last toggle
+	writeLCD("MESSAGE ...");
+	uint32_t parity = 0;
 
-		  //binary value flashed to LED using little endian format
-		  for(int i=11; i>= 0 ; --i)
-		  {
-			  uint32_t mask = (uint32_t)(1) << i;
-			  uint32_t masked_n = adc_val & mask;
-			  uint32_t bit = masked_n >> i;
+	/*Start-of-Text bit --> LED on for 1 second*/
+	HAL_GPIO_WritePin(GPIOB, message_output_Pin, GPIO_PIN_SET);
+	delay (100000);
 
-			  char bitstr[1];
-			  sprintf(bitstr, "%lu", bit);
-			  writeLCD(bitstr);
-
-			  if(bit == 0)
-			  {
-				  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
-
-			  }
-			  else
-			  {
-
-				  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
-			  }
-
-			  delay(message_delay);
-		  }
+	/*Message Identifier Bit --> LED off for 1 second*/
+	HAL_GPIO_WritePin(GPIOB, message_output_Pin, GPIO_PIN_RESET);
+	delay(100000);
 
 
-	    prev_millis = curr_millis;
+	/*
+	 * binary value converted bit-by-bit
+	 * each time written to output voltage line --> PB6
+	 */
+
+	for (int i =11; i>=0; --i)
+
+	{
+		/*computing single bit*/
+		uint32_t mask = (uint32_t)(1) << i;
+		uint32_t masked_n = adc_val & mask;
+		uint32_t bit = masked_n >> i;
+
+		parity += bit; //counting number of 1s in the string
+
+		 /*uncomment below if you would like to display each bit on the LCD too*/
+
+		/*
+		 * char bitstr[1];
+		 * sprintf(bitstr, "%lu", bit);
+		 * writeLCD(bitstr);
+		 */
+
+		if(bit == 0)
+		{
+			//Voltage Low
+			HAL_GPIO_WritePin(GPIOB, message_output_Pin, GPIO_PIN_RESET);
+		}
+
+		else
+		{
+			//Voltage High
+			HAL_GPIO_WritePin(GPIOB, message_output_Pin, GPIO_PIN_SET);
+		}
+
+		delay(message_delay);
+	}
+
+
+
+
+	//LED turns on for 1 second if there are an even number of digits
+	  if (parity % 2 == 0)
+	  {
+		  HAL_GPIO_WritePin(GPIOB, message_output_Pin, GPIO_PIN_SET);
+	  }
+	  else
+	  {
+		  HAL_GPIO_WritePin(GPIOB, message_output_Pin, GPIO_PIN_RESET);
+	  }
+	  delay(100000);
+
+
+	  /*stop/end of text bit --> LED flashes at 100 millisecond intervals for 1 second*/
+	  for(int i=0; i<10; ++i)
+	  {
+		  HAL_GPIO_TogglePin(GPIOB, message_output_Pin);
+		  delay(10000);
 	  }
 
-  
+	  checkpoint_count ++;
+
+	  /*END OF DEBOUNCING CONDITION*/
+	  	}
+	  //turns LED off
+	  HAL_GPIO_WritePin(GPIOB, message_output_Pin, GPIO_PIN_RESET);
+	  prev_millis = curr_millis;
+
+
 	  // Clear the EXTI line 0 pending bit
-	    __HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_0);
+		__HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_0);
 }
+
 
 // writeLCD function
 void writeLCD(char *char_in){
@@ -411,20 +496,13 @@ uint32_t pollADC(void){ // Get ADC value
 	return val;
 }
 
-// Calculate PWM CCR value
-uint32_t ADCtoCCR(uint32_t adc_val){
-  // TODO: Calculate CCR val using an appropriate equation
-	uint32_t arr_value = 47999; // ARR value for a 1 kHz frequency
-	uint32_t val =  (adc_val * arr_value) / 4095;
-
-	return val;
-}
 
 void ADC1_COMP_IRQHandler(void)
 {
 	adc_val = HAL_ADC_GetValue(&hadc); // read adc value
 	HAL_ADC_IRQHandler(&hadc); //Clear flags
 }
+
 /* USER CODE END 4 */
 
 /**
@@ -441,7 +519,6 @@ void Error_Handler(void)
   }
   /* USER CODE END Error_Handler_Debug */
 }
-
 
 #ifdef  USE_FULL_ASSERT
 /**
