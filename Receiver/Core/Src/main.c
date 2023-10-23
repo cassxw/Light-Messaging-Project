@@ -91,7 +91,14 @@ int main(void)
 	  // Listen to the GPIO PB7 (GPIO_IDR_7) for incoming data,
 	  // i.e. the SOT bit (LED HIGH)
 	  if (LL_GPIO_IsInputPinSet(GPIOB, LL_GPIO_PIN_7)) {
+		  lcd_command(CLEAR);
+		  lcd_putstring("Found Message");
+		  lcd_command(LINE_TWO);
+		  lcd_putstring("Decoding Now...");
 		  receiveMessage();
+
+		  lcd_command(CLEAR);
+		  lcd_putstring("Listening");
 	  }
   }
 }
@@ -253,6 +260,7 @@ static void MX_GPIO_Init(void)
 
   /**/
   LL_GPIO_ResetOutputPin(LED7_GPIO_Port, LED7_Pin);
+  LL_GPIO_ResetOutputPin(LED7_GPIO_Port, LED3_Pin);
 
 //  /**/
 //  LL_SYSCFG_SetEXTISource(LL_SYSCFG_EXTI_PORTA, LL_SYSCFG_EXTI_LINE0);
@@ -292,10 +300,11 @@ static void MX_GPIO_Init(void)
   LL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   // Configure PB0 (LED0) as an output for indicating success or error
-  GPIO_InitStruct.Pin = LL_GPIO_PIN_0;
+  GPIO_InitStruct.Pin = GPIO_PIN_3;
   GPIO_InitStruct.Mode = LL_GPIO_MODE_OUTPUT;
   GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_LOW;
   GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
+  GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
   LL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 }
 
@@ -330,6 +339,10 @@ void receiveMessage(void) {
 	delay(100000);
 
 	// Receive the stop bit (EOT)
+	for (int i = 0; i < 10; i++)
+	{
+		delay(20000);
+	}
 
 	// Message Successfully Received
 	decodeMessage(message_type, received_data, received_parity);
@@ -352,18 +365,18 @@ void decodeMessage(uint8_t message_type, uint16_t received_data, uint8_t receive
             // Checkpoint Message
             if (received_data == received_counter) {
                 // Counter matches the expected value
-            	lcd_putstring("Checkpoint Successful!");
+            	lcd_putstring("Checkpoint Success!");
 
             	lcd_command(LINE_TWO);
             	char lcd_message[20];
-            	sprintf(lcd_message, "All OK %d->%d", received_counter, received_data);
+            	sprintf(lcd_message, "All OK = %d", received_data);
             	lcd_putstring(lcd_message);
 
                 displaySuccess();
 
             } else {
                 // Counter does not match the expected value
-            	lcd_putstring("Counter Mismatch!");
+            	lcd_putstring("Counter Mismatch");
 
             	lcd_command(LINE_TWO);
 				char lcd_message[20];
@@ -380,20 +393,31 @@ void decodeMessage(uint8_t message_type, uint16_t received_data, uint8_t receive
             // Data Message
             // Display the received ADC value on the LCD
             char lcd_message[20];
-            sprintf(lcd_message, "Received ADC: %d", received_data);
+            sprintf(lcd_message, "ADC Value: %d", received_data);
             lcd_command(CLEAR);
             lcd_putstring(lcd_message);
+            lcd_command(LINE_TWO);
+            lcd_putstring("RECIEVED");
 
             // Successful receive
             displaySuccess();
+
             received_counter++;
+
+
         }
 
     } else {
         // Parity error - corruption has occured
     	// Display error on LED0
+    	lcd_command(CLEAR);
+    	lcd_putstring("Parity bit invalid");
+    	lcd_command(LINE_TWO);
+    	lcd_putstring("corrupt value!");
         displayError();
     }
+
+    delay(500000);
 }
 
 /**
@@ -420,9 +444,9 @@ uint8_t calculateParity(uint16_t data) {
  * @brief   Display success by turning on LED0 (PB0) for 2 seconds.
  */
 void displaySuccess(void) {
-    LL_GPIO_SetOutputPin(GPIOB, LL_GPIO_PIN_0);
-    delay(200000);  // Turn on LED0 for 2 seconds
-    LL_GPIO_ResetOutputPin(GPIOB, LL_GPIO_PIN_0);
+    LL_GPIO_SetOutputPin(GPIOB, GPIO_PIN_3);
+    delay(400000);  // Turn on LED0 for 2 seconds
+    LL_GPIO_ResetOutputPin(GPIOB, GPIO_PIN_3);
 }
 
 /**
@@ -430,10 +454,10 @@ void displaySuccess(void) {
  */
 void displayError(void) {
     for (int i = 0; i < 20; i++) {
-        HAL_GPIO_TogglePin(GPIOB, LL_GPIO_PIN_0);
-        delay(10000);
+        HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_3);
+        delay(40000);
     }
-    LL_GPIO_ResetOutputPin(GPIOB, LL_GPIO_PIN_0);
+    LL_GPIO_ResetOutputPin(GPIOB, GPIO_PIN_3);
 }
 
 /**
