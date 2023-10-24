@@ -337,7 +337,7 @@ void EXTI0_1_IRQHandler(void)
 		transmitted_counter++;
 
 		// Add a delay for visual feedback
-		delay(200000);
+		delay(800000);
 
 		// Update previous time for debouncing
 		prev_millis = curr_millis;

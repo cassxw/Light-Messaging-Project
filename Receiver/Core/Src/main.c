@@ -402,7 +402,7 @@ void decodeMessage(uint8_t message_type, uint16_t received_data, uint8_t receive
         displayError();
     }
 
-    delay(500000);
+    delay(400000);
 }
 
 /**
