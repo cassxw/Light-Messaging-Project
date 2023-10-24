@@ -88,7 +88,9 @@ int main(void)
   {
 	// Listening for Checkpoint Message Transmission
 	if (!(GPIOA->IDR & GPIO_IDR_1)) {
+		HAL_NVIC_DisableIRQ(EXTI0_1_IRQn);
 		triggerCheckpoint();
+		HAL_NVIC_EnableIRQ(EXTI0_1_IRQn);
 	}
 
 	// Read ADC Value from POT1
@@ -337,7 +339,7 @@ void EXTI0_1_IRQHandler(void)
 		transmitted_counter++;
 
 		// Add a delay for visual feedback
-		delay(800000);
+		delay(400000);
 
 		// Update previous time for debouncing
 		prev_millis = curr_millis;
@@ -380,7 +382,7 @@ void triggerCheckpoint(void) {
 	lcd_putstring("Sent to CN!");
 
 	// Add a delay for visual feedback
-	delay(200000);
+	delay(400000);
 }
 
 /**
