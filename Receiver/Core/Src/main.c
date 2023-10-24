@@ -83,7 +83,7 @@ int main(void)
   // PWM setup
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3); // Start PWM on TIM3 Channel 3
 
-  lcd_putstring("Listening");
+  lcd_putstring("Listening...");
 
   /* Infinite loop */
   while (1)
@@ -92,13 +92,14 @@ int main(void)
 	  // i.e. the SOT bit (LED HIGH)
 	  if (LL_GPIO_IsInputPinSet(GPIOB, LL_GPIO_PIN_7)) {
 		  lcd_command(CLEAR);
-		  lcd_putstring("Found Message");
+		  lcd_putstring("Found Message!");
 		  lcd_command(LINE_TWO);
 		  lcd_putstring("Decoding Now...");
+
 		  receiveMessage();
 
 		  lcd_command(CLEAR);
-		  lcd_putstring("Listening");
+		  lcd_putstring("Listening...");
 	  }
   }
 }
@@ -277,9 +278,16 @@ static void MX_GPIO_Init(void)
   LL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 }
 
+/**
+ * @brief Receive and process an incoming message.
+ *
+ * This function is responsible for receiving and processing incoming messages,
+ * distinguishing between Data and Checkpoint Messages, and ensuring the integrity
+ * of the received data.
+ */
 void receiveMessage(void) {
 
-	// If this function is invoked, it means that the SOT of a message was found
+	// If this function is invoked, it means that the SOT was found
 	delay(200000);
 
 	// Message Identifier
@@ -290,7 +298,7 @@ void receiveMessage(void) {
 
 	uint16_t received_data = 0;
 
-	// Receive the data bits in Little Endian format (MSB first)
+	// Receive the data bits in Little Endian format (LSB first)
 	for (int i = 0; i < 16; i++) {
 
 		if (LL_GPIO_IsInputPinSet(GPIOB, LL_GPIO_PIN_7)) {
@@ -308,51 +316,7 @@ void receiveMessage(void) {
 	delay(200000);
 
 	// Receive the stop bit (EOT)
-
-
-	// true if PB7 is 1 = parity bit should be 0
-	// false if PB7 is 0 = parity bit should be 1
-
-	/*
-
-	if (received_parity == 1) {
-		if (LL_GPIO_IsInputPinSet(GPIOB, LL_GPIO_PIN_7) == 1) {
-			lcd_command(CLEAR);
-			lcd_putstring("Incomplete");
-			lcd_command(LINE_TWO);
-			lcd_putstring("Message!");
-			displayError();
-			delay(200000);
-			return;
-		}
-	} else if (received_parity == 0) { //received_parity == 0
-		if (LL_GPIO_IsInputPinSet(GPIOB, LL_GPIO_PIN_7) == 0) {
-			lcd_command(CLEAR);
-			lcd_putstring("Incomplete");
-			lcd_command(LINE_TWO);
-			lcd_putstring("Message!");
-			displayError();
-			delay(200000);
-			return;
-		}
-	}
-
-	*/
-
-	/*
-	if(!LL_GPIO_IsInputPinSet(GPIOB, LL_GPIO_PIN_7))
-	{
-		lcd_command(CLEAR);
-		lcd_putstring("Incomplete");
-		lcd_command(LINE_TWO);
-		lcd_putstring("Message!");
-		displayError();
-		delay(200000);
-		return;
-	}*/
-
-	delay(20000);
-	for (int i = 0; i < 9; i++)
+	for (int i = 0; i < 10; i++)
 	{
 		delay(20000);
 	}
@@ -361,6 +325,15 @@ void receiveMessage(void) {
 	decodeMessage(message_type, received_data, received_parity);
 }
 
+/**
+ * @brief Decode and process a received message.
+ *
+ * This function decodes a received message, verifying its integrity, message type, and content.
+ *
+ * @param message_type The type of the received message (1 for Checkpoint Message, 0 for Data Message).
+ * @param received_data The data received in the message.
+ * @param received_parity The received parity bit.
+ */
 void decodeMessage(uint8_t message_type, uint16_t received_data, uint8_t received_parity) {
 
     // Calculate the expected parity for the received data
@@ -378,8 +351,8 @@ void decodeMessage(uint8_t message_type, uint16_t received_data, uint8_t receive
             // Checkpoint Message
             if (received_data == received_counter) {
                 // Counter matches the expected value
+            	// Display success message on LCD
             	lcd_putstring("Checkpoint Good!");
-
             	lcd_command(LINE_TWO);
             	char lcd_message[20];
             	sprintf(lcd_message, "All OK = %d", received_data);
@@ -389,44 +362,43 @@ void decodeMessage(uint8_t message_type, uint16_t received_data, uint8_t receive
 
             } else {
                 // Counter does not match the expected value
-            	lcd_putstring("Counter Mismatch");
-
+            	// Display error message on LCD
+            	lcd_putstring("Counter Mismatch!");
             	lcd_command(LINE_TWO);
 				char lcd_message[20];
 				sprintf(lcd_message, "Updating %d->%d", received_counter, received_data);
 				lcd_putstring(lcd_message);
 
 				received_counter = received_data;
-
                 displayError();
             }
 
         } else if (message_type == 0) {
 
             // Data Message
+
             // Display the received ADC value on the LCD
             char lcd_message[20];
             sprintf(lcd_message, "ADC Value: %d", received_data);
             lcd_command(CLEAR);
             lcd_putstring(lcd_message);
             lcd_command(LINE_TWO);
-            lcd_putstring("RECEIVED");
+            lcd_putstring("Received!");
 
             // Successful receive
-            displaySuccess();
-
             received_counter++;
-
-
+            displaySuccess();
         }
 
     } else {
         // Parity error - corruption has occured
+
     	// Display error on LED0
     	lcd_command(CLEAR);
-    	lcd_putstring("Invalid Parity");
+    	lcd_putstring("Invalid Parit!");
     	lcd_command(LINE_TWO);
-    	lcd_putstring("Corruption Found!");
+    	lcd_putstring("Corruption Found");
+
         displayError();
     }
 
@@ -439,7 +411,7 @@ void decodeMessage(uint8_t message_type, uint16_t received_data, uint8_t receive
  * This function calculates the parity bit for a 16-bit data value by
  * performing an XOR operation on all the individual bits. Parity is used
  * to check for data integrity and to ensure that the number of set bits in
- * the data is even or odd.
+ * the data is even.
  *
  * @param   data The 16-bit data for which to calculate the parity.
  * @return  The calculated parity bit (0 or 1) representing data integrity.
