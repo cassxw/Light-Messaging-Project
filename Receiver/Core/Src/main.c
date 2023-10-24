@@ -315,14 +315,39 @@ void receiveMessage(void) {
 	uint8_t received_parity = LL_GPIO_IsInputPinSet(GPIOB, LL_GPIO_PIN_7);
 	delay(200000);
 
+	uint32_t EOT_high = 0;
+	uint32_t EOT_low = 0;
 	// Receive the stop bit (EOT)
 	for (int i = 0; i < 10; i++)
 	{
+		if (LL_GPIO_IsInputPinSet(GPIOB, LL_GPIO_PIN_7))
+		{
+			EOT_high ++;
+		}
+		else
+		{
+			EOT_low++;
+		}
 		delay(20000);
 	}
 
-	// Message Successfully Received
-	decodeMessage(message_type, received_data, received_parity);
+	if (EOT_high == 5 && EOT_low == 5)
+	{
+		// Message Successfully Received
+		decodeMessage(message_type, received_data, received_parity);
+	}
+
+	else
+	{
+		lcd_command(CLEAR);
+		lcd_putstring("incomplete -");
+		lcd_command(LINE_TWO);
+		lcd_putstring("message !!!");
+
+		displayError();
+	}
+
+
 }
 
 /**
@@ -391,18 +416,18 @@ void decodeMessage(uint8_t message_type, uint16_t received_data, uint8_t receive
         }
 
     } else {
-        // Parity error - corruption has occured
+        // Parity error - corruption has occurred
 
     	// Display error on LED0
     	lcd_command(CLEAR);
-    	lcd_putstring("Invalid Parit!");
+    	lcd_putstring("Invalid Parity!");
     	lcd_command(LINE_TWO);
     	lcd_putstring("Corruption Found");
 
         displayError();
     }
 
-    delay(400000);
+    //delay(400000);
 }
 
 /**
@@ -440,7 +465,7 @@ void displaySuccess(void) {
 void displayError(void) {
     for (int i = 0; i < 20; i++) {
         HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_3);
-        delay(40000);
+        delay(20000);
     }
     LL_GPIO_ResetOutputPin(GPIOB, GPIO_PIN_3);
 }
