@@ -1,7 +1,8 @@
-# Light-Based Messaging System with STM Development Boards
+# Light-Based Messaging System  
+# with STM Development Boards
 
 ## Overview
-This project explores an innovative approach to data communication using **light signals**. By leveraging **STM development boards**, we demonstrate a seamless **embedded system-to-embedded system** messaging system. The core objective is to transmit **analog data**—specifically, readings from an onboard potentiometer (POT) sampled via an **ADC**—from a **Transmitter (Sensor Node - SN)** to a **Receiver (Central Node - CN)**.
+This project explores an innovative approach to data communication using **light signals**. By leveraging **STM development boards**, we demonstrate a seamless **embedded system-to-embedded system** messaging system. The core objective is to transmit **analog data** - specifically, readings from an onboard potentiometer (POT) sampled via an **ADC**—from a **Transmitter (Sensor Node - SN)** to a **Receiver (Central Node - CN)**.
 
 ## Key Features
 - **Push-button-triggered data sampling**
@@ -56,10 +57,10 @@ Ensures message reliability by tracking sent/received samples.
 - **LCD Display Output:** Provides real-time data visualisation.
 
 ## Project Benefits
-✅ **Real-time data exchange** between embedded systems.
-✅ **Error detection & correction** ensures reliability.
-✅ **Simple yet effective** light-based communication.
-✅ **Adaptable** for various IoT and sensor-based applications.
+✅ **Real-time data exchange** between embedded systems.  
+✅ **Error detection & correction** ensures reliability.  
+✅ **Simple yet effective** light-based communication.  
+✅ **Adaptable** for various IoT and sensor-based applications.  
 
 ## Future Improvements
 - Implement **Light-Dependent Resistors (LDRs)** for more sophisticated optical reception.
